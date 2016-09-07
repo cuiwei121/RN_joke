@@ -6,10 +6,12 @@ import {
   Text,
   View,
   ListView,
+  TouchableHighlight,
 } from 'react-native';
 
 import common from '../common/constants.js'
 import utils from '../common/utils.js'
+import JokeListView from './JokeListView.js'
 
 class JokeController extends Component {
     constructor(props) {
@@ -17,12 +19,11 @@ class JokeController extends Component {
     }
 
     componentDidMount() {
-        this.fetchData();
+        // this.fetchData();
 
     }
 
-
-    fetchData () {
+    fetchData() {
         var joke_date = 1418814837;
         var jokeurl = common.url.joke_url
                       +'?sort=asc'
@@ -41,14 +42,14 @@ class JokeController extends Component {
         });
     }
 
-
-    render() {
-        console.log('有数据');
-        return (
-            <View style = {{flex:1,backgroundColor:'red'}}
-            ></View>
+    render(){
+        return(
+            <View style = {{flex:1}}>
+                <JokeListView/>
+             </View>
         )
     }
 }
+
 
 module.exports = JokeController;
